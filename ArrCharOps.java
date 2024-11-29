@@ -126,9 +126,9 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
        if (endIndex > arr.length){
-        endIndex=arr.length-1 ;
+        endIndex=endIndex-(endIndex-(arr.length-1));
        }
-        char [] subArr= new char [(endIndex-beginIndex)+1];
+        char [] subArr= new char [endIndex-beginIndex];
        for (int i= 0; i<subArr.length; i++)
        {
             subArr[i]= arr[i+beginIndex];
@@ -150,7 +150,7 @@ public class ArrCharOps {
         }
         for (int i=0; i<arr.length; i++)
         {
-            result =+ (long) Math.pow(arr[i] * 7, arr.length - (i+1));
+            result = result + (long) (arr[i] * Math.pow(7, arr.length - (i+1)));
         }
         return result;
     }
@@ -183,6 +183,7 @@ public class ArrCharOps {
     public static int compareTo(String str1, String str2) {
     int compare= 0;
     int length=0;
+    
         if (str1.length() > str2.length())
         {
             length=str2.length();
@@ -191,8 +192,13 @@ public class ArrCharOps {
         {
             length= str1.length();
         }
+        if (length == 0)
+        {
+            return -2;
+        }
             for (int i=0; i<length;i++)
             {
+
                 if ((char)str1.charAt(i) > (char)str2.charAt(i))
                 {
                     return 1;
