@@ -112,9 +112,9 @@ public class ArrCharOps {
        {
         concatArr[i]=arr1[i];
        }
-       for (int i=arr1.length;i<arr1.length + arr2.length;i++)
+       for (int i=0 ;i<arr2.length;i++)
        {
-        concatArr[i]=arr2[i];
+        concatArr[i+arr1.length] = arr2[i];
        }
         return concatArr;
     }
@@ -126,7 +126,7 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
        char [] subArr= new char [endIndex-beginIndex];
-       for (int i= 0;i<=endIndex-beginIndex;i++)
+       for (int i= 0; i<endIndex-beginIndex; i++)
        {
             subArr[i]= arr[i+beginIndex];
        }
@@ -178,9 +178,9 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-    int compare= -2;
+    int compare= 0;
     int length=0;
-        if (str1.length() < str2.length())
+        if (str1.length() > str2.length())
         {
             length=str2.length();
         }
@@ -192,26 +192,24 @@ public class ArrCharOps {
             {
                 if ((char)str1.charAt(i) > (char)str2.charAt(i))
                 {
-                    compare=1;
-                    break;
+                    return 1;
                 }
                 else if ((char)str1.charAt(i) < (char)str2.charAt(i))
                 {
-                    compare=-1;
-                    break;
+                    return -1;
                 }
-                if (i+1 == length) {
-                    if (str1.length()== str2.length()) {
-                        compare=0;
-                    }
-                    else if (str1.length()> str2.length()) {
-                        compare=1; 
-                    }
-                    else {
-                        compare=-1;
-                    }
-                }
+                
             }
+
+                if (str1.length()== str2.length()) {
+                    compare=0;
+                }
+                else if (str1.length()> str2.length()) {
+                    compare=1; 
+                }
+                else {
+                    compare=-1;
+                }
         return compare;
     }
 }
