@@ -49,7 +49,7 @@ public class ArrCharOps {
         }
         for (int i=0; i<arr1.length; i++)
         {
-            if (arr1[i] != arr2[i]); {
+            if (arr1[i] != arr2[i]) {
                 return false;
             }
         }
@@ -125,8 +125,11 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-       char [] subArr= new char [endIndex-beginIndex];
-       for (int i= 0; i<endIndex-beginIndex; i++)
+       if (endIndex > arr.length){
+        endIndex=arr.length-1 ;
+       }
+        char [] subArr= new char [(endIndex-beginIndex)+1];
+       for (int i= 0; i<subArr.length; i++)
        {
             subArr[i]= arr[i+beginIndex];
        }
