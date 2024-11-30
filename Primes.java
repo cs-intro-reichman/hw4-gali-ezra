@@ -12,9 +12,9 @@ public class Primes {
         for (int i=2 ; i<= isPrime.length/2; i++)
         {
 
-                for (int j=i; j <= isPrime.length-j; j=j+i)
+                for (int j=i+i; j < isPrime.length; j=j+i)
                 {
-                    isPrime[j+i]= false;
+                    isPrime[j]= false;
                 }
 
         }
