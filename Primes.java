@@ -28,7 +28,7 @@ public class Primes {
         }
 
             precentPrime = (int)((countPrime/(double)num)*100);
-            System.out.println("There are " + countPrime + " primes between 2 and " + num + " (" + precentPrime+ "% are primes)");
+            System.out.println("There are " + countPrime + " primes between 2 and " + num + " (%" + precentPrime+ " are primes)");
 
     }
 }
