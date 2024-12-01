@@ -50,7 +50,7 @@ public class MyString {
         int countFound= 0;
 
         if (str2.length() == 0 ) {
-            return false;
+            return true;
         }
 
         if (str1.length() < str2.length()) {
