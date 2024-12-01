@@ -70,11 +70,8 @@ public class MyString {
 
         for (int i=0;i<str2.length();i++) 
         {  
-            if (firstIndex+i == str1.length()) {
-                return false;
-            }
 
-            if (str1.charAt(i+firstIndex) != str2.charAt(i)) {
+            if (str1.charAt(i) != str2.charAt(i)) {
                countFound=0;
             }
             else {
