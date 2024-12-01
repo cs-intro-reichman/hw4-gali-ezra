@@ -50,8 +50,8 @@ public class MyString {
         
         int countFound= 0;
         //change to lower case
-        str1 = lowerCase(str1);
-        str2 = lowerCase(str2);
+        //str1 = lowerCase(str1);
+        //str2 = lowerCase(str2);
 
         if (str2.length() == 0 ) {
             return true;
