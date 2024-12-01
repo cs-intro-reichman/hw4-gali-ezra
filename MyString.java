@@ -21,7 +21,7 @@ public class MyString {
         String lowerCaseStr = "";
         for (int i=0;i<str.length();i++)
         {
-            if (str.charAt(i) <=90 &  str.charAt(i) >=65) {
+            if (str.charAt(i) <=90 &&  str.charAt(i) >= 65) {
             lowerCaseStr += (char)(str.charAt(i)+32);
             }
             else {
@@ -32,7 +32,7 @@ public class MyString {
     }
 
     public static int indexOf(String str, char ch) {
-        int firstIndex=0;
+        int firstIndex=-1;
          for (int i=0;i<str.length();i++)
          {
              if (str.charAt(i) == ch)
@@ -43,27 +43,44 @@ public class MyString {
          }
          return firstIndex;
      }
+     
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        int firstIndex = indexOf(str1, str2.charAt(0));
-
-        if (str1.length() < str2.length()) {
-            return false;
-        }
+        int countFound= 0;
 
         if (str2.length() == 0 ) {
             return false;
         }
 
+        if (str1.length() < str2.length()) {
+            return false;
+        }
+
+        int firstIndex = indexOf(str1, str2.charAt(0));
+
+        if (firstIndex == -1) {
+            return false;
+        }
+
         for (int i=0;i<str2.length();i++) 
-        {   if (firstIndex+i ==  str1.length()) {
+        {  
+            if (firstIndex+i == str1.length()) {
                 return false;
             }
+
             if (str1.charAt(i+firstIndex) != str2.charAt(i)) {
-                return false;
+               countFound=0;
+            }
+            else {
+                countFound++;
+            }
+
+            if (countFound == str2.length()) {
+                return true;
+                
             }
         }
-        return true;
+        return false;
     }
 }
