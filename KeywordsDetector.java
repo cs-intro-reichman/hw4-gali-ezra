@@ -29,14 +29,19 @@ public class KeywordsDetector {
     public static void detectAndPrint(String[] sentences, String[] keywords) {
     
 
-
     for (int i=0; i < sentences.length; i++)
     {
+        String sentence= MyString.lowerCase(sentences[i]);
+
         for (int j=0; j<keywords.length; j++)
         {
-            if (MyString.contains(MyString.lowerCase(sentences[i]),MyString.lowerCase(keywords[j]))) {
+            String word=MyString.lowerCase(keywords[j]);
+            
+            if (sentence.indexOf(word)!=-1) {
                 System.out.println(sentences[i]);
+                break;
             }
+         
         }
     }
 
